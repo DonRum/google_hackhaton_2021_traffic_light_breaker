@@ -229,6 +229,7 @@ int distance()
   delay(100);
   return cm;
 }
+
 void blink_dist(int duration)
 {
   if(duration >=50) duration = 50;
