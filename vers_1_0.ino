@@ -1,20 +1,20 @@
-const int LED_RED = 13;                // Порт 13, красный светодиод
-const int LED_YELLOW = 12;             // Порт 12, желтый светодиод
-const int LED_GREEN = 11;              // Порт 11, зеленый светодиод
+const int LED_RED = 13;                // Pin 13, red LED
+const int LED_YELLOW = 12;             // Pin 12, yellow LED
+const int LED_GREEN = 11;              // Pin 11, green LED
 
 #define RED_1 7
 #define YELLOW_1 6
 #define GREEN_1 5
 
-const int echoPin = 9;                 //Порт 9, echoPin
-const int trigPin = 10;                //Порт 10, trigPin
+const int echoPin = 9;                 //Pin 9, echoPin
+const int trigPin = 10;                //Pin 10, trigPin
 #define INTERRUPT_PIN 2
 #define TEST_LED 4
-const int TIMEOUT_RED = 3000;          // Время горения красного сетодиода
-const int TIMEOUT_YEL = 1690;          // Время горения желтого светодиода
-const int TIMEOUT_GREEN = 2000;        // Время горения зеленого светодиода
+const int TIMEOUT_RED = 3000;          // red LED glow time
+const int TIMEOUT_YEL = 1690;          // yellow LED glow time
+const int TIMEOUT_GREEN = 2000;        // green LED glow time
 
-const int TIMEOUT_FLASH_GREEN = 500;      // Время мигания зеленого светодиода
+const int TIMEOUT_FLASH_GREEN = 500;      // grenn LED blink time
 
 void setup() {
   // put your setup code here, to run once:
@@ -22,7 +22,6 @@ void setup() {
   pinMode(trigPin, OUTPUT);
   pinMode(echoPin, INPUT);
 
-  // Все порты светодиодов будут у нас установлены в режим "внешняя нагрузка", OUTPUT
   pinMode(LED_RED, OUTPUT);
   pinMode(LED_YELLOW, OUTPUT);
   pinMode(LED_GREEN, OUTPUT);
@@ -32,7 +31,6 @@ void setup() {
   pinMode(GREEN_1, OUTPUT);
   //
   pinMode(TEST_LED, OUTPUT);
-  // Устанавливаем начальное значение светодиодов
   digitalWrite(TEST_LED, LOW);
   digitalWrite(LED_RED, LOW);
   digitalWrite(LED_YELLOW, LOW);
@@ -76,7 +74,7 @@ void loop() {
       digitalWrite(RED_1, HIGH);
       digitalWrite(YELLOW_1, LOW);
       digitalWrite(GREEN_1, LOW);
-      if(my_delay(TIMEOUT_GREEN)==1) // Ждем
+      if(my_delay(TIMEOUT_GREEN)==1) 
       {
         state_now = READY;
         break;
@@ -134,7 +132,7 @@ void loop() {
       digitalWrite(YELLOW_1, LOW);
       digitalWrite(GREEN_1, HIGH);
 
-      if(my_delay(TIMEOUT_GREEN)==1) // Ждем
+      if(my_delay(TIMEOUT_GREEN)==1)
       {
         state_now = READY;
         break;
